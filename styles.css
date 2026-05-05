@@ -1,0 +1,403 @@
+/* ============================================================
+   RUBEN CURBELO — PORTFOLIO
+   Editorial system: Instrument Serif + Geist + Geist Mono
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Colors */
+  --paper: #F4F1EC;
+  --paper-2: #ECE8E1;
+  --paper-3: #E0DBD2;
+  --ink: #0E0E0C;
+  --ink-2: #2A2A26;
+  --ink-3: #6B6862;
+  --ink-4: #A8A49C;
+  --rule: #D4CFC5;
+  --accent: #C24D2C;
+  --accent-deep: #9A3D22;
+  --sage: #7A8471;
+
+  /* Type */
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --gutter: clamp(20px, 4vw, 56px);
+  --section: clamp(80px, 12vw, 180px);
+
+  /* Motion */
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--ink); color: var(--paper); }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.mono { font-family: var(--mono); font-weight: 400; letter-spacing: 0.02em; }
+.italic { font-style: italic; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+
+.h-display {
+  font-family: var(--serif);
+  font-size: clamp(56px, 11vw, 200px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+.h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7vw, 112px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.h3 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.6vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 36px);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+.body-l {
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.caption {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.wrap {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .grid { gap: 16px; }
+}
+
+hr.rule {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 0;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mix-blend-mode: difference;
+  color: #F4F1EC;
+}
+
+.nav-mark {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.nav-links a {
+  position: relative;
+  transition: opacity 0.3s var(--ease);
+}
+
+.nav-links a:hover { opacity: 0.6; }
+
+.nav-time {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: inherit;
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateY(101%);
+  transition: transform 0.5s var(--ease);
+  z-index: -1;
+}
+
+.btn:hover { color: var(--paper); border-color: var(--ink); }
+.btn:hover::before { transform: translateY(0); }
+
+.btn-arrow {
+  width: 8px; height: 8px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease);
+}
+
+.btn:hover .btn-arrow { transform: rotate(45deg) translate(2px, -2px); }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-line {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.reveal-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1.1s var(--ease-out);
+}
+
+.reveal-line.in > span {
+  transform: translateY(0);
+}
+
+.reveal-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--paper-3);
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.reveal-img.in::after { transform: scaleY(0); }
+
+.reveal-img > * {
+  transform: scale(1.1);
+  transition: transform 1.6s var(--ease-out);
+}
+
+.reveal-img.in > * { transform: scale(1); }
+
+/* ============================================================
+   PLACEHOLDERS (CSS-drawn UI mockups)
+   ============================================================ */
+
+.placeholder {
+  position: relative;
+  width: 100%;
+  background: var(--paper-2);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.placeholder.tone-warm { background: linear-gradient(135deg, #E8DDD0, #D4C2A8); }
+.placeholder.tone-cool { background: linear-gradient(135deg, #C9D2D6, #A8B4BC); }
+.placeholder.tone-deep { background: linear-gradient(135deg, #1F2326, #0E0E0C); color: var(--paper); }
+.placeholder.tone-accent { background: linear-gradient(135deg, #C24D2C, #8B3618); color: var(--paper); }
+.placeholder.tone-sage { background: linear-gradient(135deg, #8A9481, #5E685A); color: var(--paper); }
+.placeholder.tone-paper { background: var(--paper-2); }
+
+.placeholder-label {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.placeholder-meta {
+  position: absolute;
+  bottom: 16px; right: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+/* Subtle noise texture overlay for depth */
+.placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--section) var(--gutter) 32px;
+  margin-top: var(--section);
+}
+
+.footer-mark {
+  font-family: var(--serif);
+  font-size: clamp(80px, 18vw, 280px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  margin-bottom: 80px;
+}
+
+.footer-mark em { color: var(--accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(244, 241, 236, 0.15);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-links a:hover { color: var(--paper); }

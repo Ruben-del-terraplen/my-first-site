@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ruben Curbelo — Product Designer</title>
+<style>
+/* ============================================================
+   RUBEN CURBELO — PORTFOLIO
+   Editorial system: Instrument Serif + Geist + Geist Mono
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Colors */
+  --paper: #F4F1EC;
+  --paper-2: #ECE8E1;
+  --paper-3: #E0DBD2;
+  --ink: #0E0E0C;
+  --ink-2: #2A2A26;
+  --ink-3: #6B6862;
+  --ink-4: #A8A49C;
+  --rule: #D4CFC5;
+  --accent: #C24D2C;
+  --accent-deep: #9A3D22;
+  --sage: #7A8471;
+
+  /* Type */
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* Spacing */
+  --gutter: clamp(20px, 4vw, 56px);
+  --section: clamp(80px, 12vw, 180px);
+
+  /* Motion */
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--ink); color: var(--paper); }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.mono { font-family: var(--mono); font-weight: 400; letter-spacing: 0.02em; }
+.italic { font-style: italic; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+
+.h-display {
+  font-family: var(--serif);
+  font-size: clamp(56px, 11vw, 200px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+.h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7vw, 112px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.h3 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.6vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.lede {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 36px);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+  color: var(--ink-2);
+}
+
+.body-l {
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.caption {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.wrap {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .grid { gap: 16px; }
+}
+
+hr.rule {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 0;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mix-blend-mode: difference;
+  color: #F4F1EC;
+}
+
+.nav-mark {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.nav-links a {
+  position: relative;
+  transition: opacity 0.3s var(--ease);
+}
+
+.nav-links a:hover { opacity: 0.6; }
+
+.nav-time {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: inherit;
+  opacity: 0.85;
+}
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateY(101%);
+  transition: transform 0.5s var(--ease);
+  z-index: -1;
+}
+
+.btn:hover { color: var(--paper); border-color: var(--ink); }
+.btn:hover::before { transform: translateY(0); }
+
+.btn-arrow {
+  width: 8px; height: 8px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease);
+}
+
+.btn:hover .btn-arrow { transform: rotate(45deg) translate(2px, -2px); }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-line {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.reveal-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1.1s var(--ease-out);
+}
+
+.reveal-line.in > span {
+  transform: translateY(0);
+}
+
+.reveal-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--paper-3);
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.reveal-img.in::after { transform: scaleY(0); }
+
+.reveal-img > * {
+  transform: scale(1.1);
+  transition: transform 1.6s var(--ease-out);
+}
+
+.reveal-img.in > * { transform: scale(1); }
+
+/* ============================================================
+   PLACEHOLDERS (CSS-drawn UI mockups)
+   ============================================================ */
+
+.placeholder {
+  position: relative;
+  width: 100%;
+  background: var(--paper-2);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.placeholder.tone-warm { background: linear-gradient(135deg, #E8DDD0, #D4C2A8); }
+.placeholder.tone-cool { background: linear-gradient(135deg, #C9D2D6, #A8B4BC); }
+.placeholder.tone-deep { background: linear-gradient(135deg, #1F2326, #0E0E0C); color: var(--paper); }
+.placeholder.tone-accent { background: linear-gradient(135deg, #C24D2C, #8B3618); color: var(--paper); }
+.placeholder.tone-sage { background: linear-gradient(135deg, #8A9481, #5E685A); color: var(--paper); }
+.placeholder.tone-paper { background: var(--paper-2); }
+
+.placeholder-label {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.placeholder-meta {
+  position: absolute;
+  bottom: 16px; right: 16px;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+/* Subtle noise texture overlay for depth */
+.placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--section) var(--gutter) 32px;
+  margin-top: var(--section);
+}
+
+.footer-mark {
+  font-family: var(--serif);
+  font-size: clamp(80px, 18vw, 280px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  margin-bottom: 80px;
+}
+
+.footer-mark em { color: var(--accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(244, 241, 236, 0.15);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-links a:hover { color: var(--paper); }
+
+</style>
+<style>
+  /* ============================================================
+     INDEX-SPECIFIC
+     ============================================================ */
+
+  /* Hero */
+  .hero {
+    padding: 180px var(--gutter) 80px;
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-eyebrow-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    margin-bottom: clamp(60px, 10vw, 140px);
+  }
+
+  .hero-eyebrow-row .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(64px, 13.5vw, 240px);
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+  }
+
+  .hero-title em { font-style: italic; color: var(--ink-3); }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: clamp(60px, 10vw, 140px);
+    align-items: end;
+  }
+
+  @media (max-width: 820px) {
+    .hero-bottom { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .hero-lede {
+    max-width: 540px;
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.2vw, 32px);
+    line-height: 1.3;
+    color: var(--ink-2);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    justify-self: end;
+    text-align: right;
+  }
+
+  @media (max-width: 820px) {
+    .hero-meta { justify-self: start; text-align: left; }
+  }
+
+  .hero-meta span strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  /* Marquee */
+  .marquee {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    gap: 56px;
+    animation: marquee 40s linear infinite;
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .marquee-track span:nth-child(odd) { font-style: italic; color: var(--ink-3); }
+  .marquee-track .dot { display: inline-flex; align-items: center; color: var(--accent); }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Section header */
+  .sec-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    padding: var(--section) 0 60px;
+    align-items: end;
+  }
+
+  @media (max-width: 820px) {
+    .sec-header { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+  }
+
+  /* Work list */
+  .work-list { display: flex; flex-direction: column; }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 240px 60px;
+    gap: 24px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    align-items: center;
+    transition: padding 0.5s var(--ease);
+    position: relative;
+  }
+
+  .work-item:last-child { border-bottom: 1px solid var(--rule); }
+
+  @media (max-width: 980px) {
+    .work-item {
+      grid-template-columns: 60px 1fr 60px;
+      gap: 16px;
+    }
+    .work-item .work-meta-col,
+    .work-item .work-thumb { display: none; }
+  }
+
+  .work-item .work-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+  }
+
+  .work-item .work-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.6vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    transition: transform 0.6s var(--ease), color 0.6s var(--ease);
+  }
+
+  .work-item .work-meta-col {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  .work-item .work-meta-col strong {
+    display: block;
+    font-weight: 400;
+    color: var(--ink-2);
+  }
+
+  .work-item .work-thumb {
+    height: 100px;
+    width: 240px;
+    overflow: hidden;
+    transition: transform 0.6s var(--ease);
+    position: relative;
+  }
+
+  .work-item .work-thumb .placeholder { height: 100%; }
+
+  .work-item .work-arrow {
+    width: 36px; height: 36px;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s var(--ease);
+    justify-self: end;
+  }
+
+  .work-item .work-arrow svg {
+    width: 14px; height: 14px;
+    transition: transform 0.5s var(--ease);
+  }
+
+  .work-item:hover .work-title {
+    transform: translateX(12px);
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .work-item:hover .work-thumb { transform: scale(1.04); }
+
+  .work-item:hover .work-arrow {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .work-item:hover .work-arrow svg { transform: rotate(-45deg); }
+
+  /* Floating cursor preview */
+  .cursor-preview {
+    position: fixed;
+    pointer-events: none;
+    width: 280px;
+    height: 360px;
+    z-index: 50;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+    transition: opacity 0.3s var(--ease), transform 0.5s var(--ease-out);
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 30px 80px rgba(14,14,12,0.25);
+  }
+
+  .cursor-preview.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .cursor-preview .placeholder { height: 100%; }
+
+  @media (max-width: 980px) { .cursor-preview { display: none; } }
+
+  /* About / Approach */
+  .about-block {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+    padding: var(--section) 0;
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .about-block { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .about-block .about-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+    padding-top: 16px;
+  }
+
+  .about-statement {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.4vw, 52px);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+
+  .about-statement em { font-style: italic; color: var(--accent); }
+
+  /* Capabilities grid */
+  .caps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 60px;
+  }
+
+  @media (max-width: 820px) {
+    .caps { grid-template-columns: 1fr; }
+  }
+
+  .cap {
+    padding: 32px 24px 32px 0;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cap:nth-child(3n) { border-right: 0; padding-right: 0; }
+
+  @media (max-width: 820px) {
+    .cap { border-right: 0; padding-right: 0; }
+  }
+
+  .cap .cap-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+  }
+
+  .cap h4 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 1.8vw, 28px);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+
+  .cap p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-3);
+  }
+
+  /* Experience timeline */
+  .exp {
+    padding: var(--section) 0;
+  }
+
+  .exp-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1.2fr 200px;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  .exp-row:last-of-type { border-bottom: 1px solid var(--rule); }
+
+  @media (max-width: 820px) {
+    .exp-row { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+  }
+
+  .exp-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-3);
+  }
+
+  .exp-co {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+
+  .exp-co em { font-style: italic; color: var(--ink-3); font-size: 0.5em; display: block; margin-top: 8px; letter-spacing: 0.04em; font-family: var(--mono); text-transform: uppercase; }
+
+  .exp-role {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+
+  .exp-tags {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    line-height: 1.8;
+    text-align: right;
+  }
+
+  @media (max-width: 820px) { .exp-tags { text-align: left; } }
+
+  /* Stats strip */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 80px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  @media (max-width: 820px) {
+    .stats { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 96px);
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+  }
+
+  .stat-num em { font-style: italic; color: var(--accent); }
+
+  .stat-lbl {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    line-height: 1.5;
+    max-width: 240px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-mark">Ruben Curbelo</a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div id="nav-time" class="nav-time">EST · 00:00</div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero">
+  <div class="hero-eyebrow-row">
+    <span><span class="dot"></span>Available for select work — Q3 2026</span>
+    <span>Index / 01 — Selected Works 2014→26</span>
+  </div>
+
+  <h1 class="hero-title">
+    <span data-split>Product designer</span><br/>
+    <em data-split>shaping systems</em><br/>
+    <span data-split>that scale.</span>
+  </h1>
+
+  <div class="hero-bottom">
+    <p class="hero-lede reveal">
+      Ten years designing intuitive, scalable products at the intersection of <em class="italic">user need</em> and business reality. Currently leading product design at Princess Cruises.
+    </p>
+    <div class="hero-meta reveal">
+      <span>Based in<strong>Florida, USA</strong></span>
+      <span>Currently<strong>Princess Cruises</strong></span>
+      <span>Previously<strong>NiftyKit</strong></span>
+    </div>
+  </div>
+</header>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Selected Works</span><span class="dot">✦</span>
+    <span>2014—2026</span><span class="dot">✦</span>
+    <span>Product Design</span><span class="dot">✦</span>
+    <span>Systems Thinking</span><span class="dot">✦</span>
+    <span>Design Leadership</span><span class="dot">✦</span>
+    <span>Selected Works</span><span class="dot">✦</span>
+    <span>2014—2026</span><span class="dot">✦</span>
+    <span>Product Design</span><span class="dot">✦</span>
+    <span>Systems Thinking</span><span class="dot">✦</span>
+    <span>Design Leadership</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     WORK
+     ============================================================ -->
+<section id="work" class="wrap">
+  <div class="sec-header">
+    <div class="sec-num reveal">§ 01 — Selected Work</div>
+    <h2 class="h1 reveal">Four projects.<br/><em class="italic">Shipped, measured,</em> still in service.</h2>
+  </div>
+
+  <div class="work-list">
+
+    <a class="work-item" href="case-1-casino.html" data-card data-thumb="warm">
+      <span class="work-num">/01</span>
+      <span class="work-title">Casino Landing Page</span>
+      <span class="work-meta-col">
+        Princess Cruises
+        <strong>2025 — Web</strong>
+      </span>
+      <span class="work-thumb">
+        <span class="placeholder tone-deep">
+          <span class="placeholder-label">/01 — Casino</span>
+          <span class="placeholder-meta">Web · 2025</span>
+        </span>
+      </span>
+      <span class="work-arrow">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11 L11 3 M5 3 H11 V9"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="work-item" href="case-2-tournament.html" data-card data-thumb="accent">
+      <span class="work-num">/02</span>
+      <span class="work-title">Slot Tournament</span>
+      <span class="work-meta-col">
+        Princess Cruises
+        <strong>2024 — Onboard</strong>
+      </span>
+      <span class="work-thumb">
+        <span class="placeholder tone-accent">
+          <span class="placeholder-label">/02 — Tournament</span>
+          <span class="placeholder-meta">Onboard · 2024</span>
+        </span>
+      </span>
+      <span class="work-arrow">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11 L11 3 M5 3 H11 V9"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="work-item" href="case-3-stateroom.html" data-card data-thumb="cool">
+      <span class="work-num">/03</span>
+      <span class="work-title">Stateroom Selection</span>
+      <span class="work-meta-col">
+        Princess Cruises
+        <strong>2024 — Web + App</strong>
+      </span>
+      <span class="work-thumb">
+        <span class="placeholder tone-cool">
+          <span class="placeholder-label">/03 — Stateroom</span>
+          <span class="placeholder-meta">Web+App · 2024</span>
+        </span>
+      </span>
+      <span class="work-arrow">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11 L11 3 M5 3 H11 V9"/>
+        </svg>
+      </span>
+    </a>
+
+    <a class="work-item" href="case-4-niftykit.html" data-card data-thumb="sage">
+      <span class="work-num">/04</span>
+      <span class="work-title">NiftyKit Services</span>
+      <span class="work-meta-col">
+        NiftyKit
+        <strong>2022 — Web Platform</strong>
+      </span>
+      <span class="work-thumb">
+        <span class="placeholder tone-sage">
+          <span class="placeholder-label">/04 — Services</span>
+          <span class="placeholder-meta">Platform · 2022</span>
+        </span>
+      </span>
+      <span class="work-arrow">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 11 L11 3 M5 3 H11 V9"/>
+        </svg>
+      </span>
+    </a>
+
+  </div>
+</section>
+
+<!-- Floating cursor preview -->
+<div class="cursor-preview" id="cursor-preview">
+  <div class="placeholder tone-warm" id="cursor-thumb">
+    <span class="placeholder-label">Preview</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" class="wrap">
+  <div class="about-block">
+    <div class="about-label reveal">§ 02 — Approach</div>
+    <div>
+      <p class="about-statement reveal" style="transition-delay: 100ms;">
+        I design products by thinking in <em>systems first</em> — connecting research, business strategy, and craft into experiences that scale beyond the screen they're built on.
+      </p>
+
+      <div class="caps">
+        <div class="cap reveal">
+          <div class="cap-num">A. 01</div>
+          <h4>Research &amp; Strategy</h4>
+          <p>Translating user behavior and business goals into product direction backed by data, not opinion.</p>
+        </div>
+        <div class="cap reveal" style="transition-delay: 80ms;">
+          <div class="cap-num">A. 02</div>
+          <h4>Design Systems</h4>
+          <p>Building scalable component libraries and design tokens that hold up across teams, surfaces, and years.</p>
+        </div>
+        <div class="cap reveal" style="transition-delay: 160ms;">
+          <div class="cap-num">A. 03</div>
+          <h4>Team Leadership</h4>
+          <p>Mentoring designers, structuring critique rituals, and shipping with cross-functional partners across complex orgs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS
+     ============================================================ -->
+<section class="wrap">
+  <div class="stats">
+    <div class="reveal">
+      <div class="stat-num"><em>10</em>+</div>
+      <div class="stat-lbl">Years designing<br/>shipped products</div>
+    </div>
+    <div class="reveal" style="transition-delay: 80ms;">
+      <div class="stat-num"><em>10</em>+</div>
+      <div class="stat-lbl">Designers led &amp;<br/>mentored across teams</div>
+    </div>
+    <div class="reveal" style="transition-delay: 160ms;">
+      <div class="stat-num"><em>4</em></div>
+      <div class="stat-lbl">Product orgs<br/>spanning enterprise to startup</div>
+    </div>
+    <div class="reveal" style="transition-delay: 240ms;">
+      <div class="stat-num"><em>∞</em></div>
+      <div class="stat-lbl">Critiques given<br/>and gratefully received</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCE
+     ============================================================ -->
+<section id="experience" class="wrap">
+  <div class="sec-header">
+    <div class="sec-num reveal">§ 03 — Experience</div>
+    <h2 class="h1 reveal">A decade of <em class="italic">shipping</em>, leading, listening.</h2>
+  </div>
+
+  <div class="exp">
+    <div class="exp-row reveal">
+      <div class="exp-period">2023 — Present</div>
+      <div class="exp-co">Princess Cruises<em>Senior Product Designer</em></div>
+      <div class="exp-role">Lead designer for the casino, stateroom, and onboard experience surfaces. Partnering with research and engineering to ship cohesive flows across web, native, and in-cabin tablets serving 2M+ guests annually.</div>
+      <div class="exp-tags">Design Lead<br/>Systems<br/>Cross-platform</div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-period">2021 — 2023</div>
+      <div class="exp-co">NiftyKit<em>Lead Product Designer</em></div>
+      <div class="exp-role">Owned end-to-end design for the platform's services suite. Built the design system from zero, mentored three designers, and partnered with founders on product direction in a 0→1 environment.</div>
+      <div class="exp-tags">0→1<br/>Design system<br/>Mentorship</div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-period">2018 — 2021</div>
+      <div class="exp-co">Earlier Roles<em>Senior &amp; Mid-Level Product Designer</em></div>
+      <div class="exp-role">Series of senior IC roles across e-commerce, fintech, and SaaS. Shipped checkout flows, dashboards, and onboarding experiences with measurable lift in conversion and retention.</div>
+      <div class="exp-tags">IC<br/>Product<br/>Conversion</div>
+    </div>
+
+    <div class="exp-row reveal">
+      <div class="exp-period">2014 — 2018</div>
+      <div class="exp-co">Independent &amp; Agency<em>Designer / Generalist</em></div>
+      <div class="exp-role">Started in agency work designing for clients across hospitality, retail, and consumer apps. Built the foundation of how I approach systems-thinking today.</div>
+      <div class="exp-tags">Agency<br/>Brand<br/>Foundations</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER / CONTACT
+     ============================================================ -->
+<footer id="contact" class="footer">
+  <div class="wrap" style="padding: 0;">
+    <div class="footer-mark reveal">
+      <span data-split>Let's build</span><br/>
+      <em data-split>something</em>
+      <span data-split>real.</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 80px;">
+      <div>
+        <div class="caption" style="color: var(--ink-4); margin-bottom: 16px;">§ Reach</div>
+        <p class="lede" style="color: var(--paper); max-width: 480px;">
+          Open to senior IC and design leadership roles. Florida-based, available remote or hybrid across US time zones.
+        </p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+        <a href="mailto:hello@rubencurbelo.com" class="serif" style="font-size: clamp(22px, 2.4vw, 36px); line-height: 1.2;">hello@rubencurbelo.com →</a>
+        <a href="#" class="serif" style="font-size: clamp(22px, 2.4vw, 36px); line-height: 1.2; font-style: italic; color: var(--ink-4);">linkedin.com/in/rubencurbelo →</a>
+        <a href="#" class="serif" style="font-size: clamp(22px, 2.4vw, 36px); line-height: 1.2; font-style: italic; color: var(--ink-4);">read.cv/rubencurbelo →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2014—2026 Ruben Curbelo</span>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="mailto:hello@rubencurbelo.com">Email</a>
+      </div>
+      <span>v 4.0 — Florida</span>
+    </div>
+  </div>
+</footer>
+
+<script src="reveal.js"></script>
+<script>
+  // Cursor preview for project cards
+  const preview = document.getElementById('cursor-preview');
+  const previewThumb = document.getElementById('cursor-thumb');
+  const tones = {
+    warm: 'tone-deep',
+    accent: 'tone-accent',
+    cool: 'tone-cool',
+    sage: 'tone-sage'
+  };
+
+  document.querySelectorAll('.work-item').forEach((item) => {
+    const tone = item.dataset.thumb;
+    item.addEventListener('mouseenter', () => {
+      previewThumb.className = 'placeholder ' + (tones[tone] || 'tone-deep');
+      const label = item.querySelector('.work-title').textContent;
+      previewThumb.querySelector('.placeholder-label').textContent = label;
+      preview.classList.add('show');
+    });
+    item.addEventListener('mouseleave', () => {
+      preview.classList.remove('show');
+    });
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    preview.style.left = e.clientX + 'px';
+    preview.style.top = e.clientY + 'px';
+  });
+</script>
+
+</body>
+</html>
