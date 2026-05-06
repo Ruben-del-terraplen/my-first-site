@@ -431,3 +431,90 @@
   overflow: hidden;
   position: relative;
 }
+
+/* ============================================================
+   Content slices — long-page screenshots, stacked
+   ============================================================ */
+
+.cs-slices {
+  margin: 96px var(--gutter) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+@media (max-width: 880px) {
+  .cs-slices { gap: 56px; margin-top: 56px; }
+}
+
+.cs-slice {
+  /* Each slice is an editorial figure */
+  display: block;
+}
+
+.cs-slice-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.cs-slice-caption strong {
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-family: var(--mono);
+}
+
+.cs-slice-caption .num {
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-slice-figure {
+  position: relative;
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--paper-2);
+  /* Soft shadow that suggests depth without being decorative */
+  box-shadow:
+    0 1px 2px rgba(14, 14, 12, 0.04),
+    0 8px 24px -8px rgba(14, 14, 12, 0.08);
+}
+
+/* Reveal animation handled by the existing .reveal-img class on the figure */
+
+.cs-slice-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Slight color depth so light cream backgrounds in screenshots don't disappear */
+}
+
+/* Footer slice gets a slightly different treatment — narrower, marked as closing */
+.cs-slice.is-closing .cs-slice-figure {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (max-width: 880px) {
+  .cs-slice.is-closing .cs-slice-figure { max-width: 100%; }
+  .cs-slice-caption { font-size: 11px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cs-slice-figure {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
