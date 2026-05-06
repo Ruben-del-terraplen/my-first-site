@@ -437,7 +437,9 @@
    ============================================================ */
 
 .cs-slices {
-  margin: 96px var(--gutter) 0;
+  max-width: 1280px;
+  margin: 96px auto 0;
+  padding: 0 var(--gutter);
   display: flex;
   flex-direction: column;
   gap: 96px;
