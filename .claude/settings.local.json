@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:my-first-site-rho-one.vercel.app)",
+      "Bash(node -e \"try { console.log\\(require.resolve\\('sharp', { paths: [require.resolve\\('sharp-cli'\\).replace\\(/sharp-cli.*/, ''\\)] }\\)\\) } catch\\(e\\) { console.log\\('not found'\\) }\")",
+      "Bash(npx -p sharp -c 'node -e \":*)",
+      "Bash(node:*)"
+    ]
+  }
+}
