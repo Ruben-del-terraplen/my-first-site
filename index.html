@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ruben Curbelo — Senior UX/UI Designer</title>
+<title>Ruben Curbelo — Product Designer</title>
 <style>
 /* ============================================================
    RUBEN CURBELO — PORTFOLIO
@@ -185,8 +185,9 @@ hr.rule {
 .nav-mark {
   font-family: var(--serif);
   font-size: 22px;
-  font-style: italic;
-  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: 0.02em;
 }
 
 .nav-links {
@@ -596,7 +597,7 @@ hr.rule {
 
   .work-item .work-meta-col {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--ink-3);
@@ -607,6 +608,15 @@ hr.rule {
     display: block;
     font-weight: 400;
     color: var(--ink-2);
+  }
+
+  .work-logo {
+    display: block;
+    max-height: 18px;
+    width: auto;
+    margin-bottom: 8px;
+    filter: brightness(0) saturate(100%);
+    opacity: 0.85;
   }
 
   .work-item .work-thumb {
@@ -810,12 +820,7 @@ hr.rule {
 
   /* Stats strip */
   .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    padding: 80px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
+    display: none;
   }
 
   @media (max-width: 820px) {
@@ -861,12 +866,12 @@ hr.rule {
      ============================================================ -->
 <header class="hero">
   <div class="hero-eyebrow-row">
-    <span><span class="dot"></span>Available for select work</span>
+    <span><span class="dot"></span>10 years of design practice</span>
     <span>Index / 01 — Selected Works 2016→26</span>
   </div>
 
   <h1 class="hero-title">
-    <span data-split>Senior UX/UI designer</span><br/>
+    <span data-split>Product Designer</span><br/>
     <em data-split>shaping experiences</em><br/>
     <span data-split>that ship &amp; scale.</span>
   </h1>
@@ -886,13 +891,13 @@ hr.rule {
 <div class="marquee">
   <div class="marquee-track">
     <span>Selected Works</span><span class="dot">✦</span>
-    <span>2016—2026</span><span class="dot">✦</span>
-    <span>UX/UI Design</span><span class="dot">✦</span>
+    <span>Behavioral Analysis</span><span class="dot">✦</span>
+    <span>Product Designer</span><span class="dot">✦</span>
     <span>Design Systems</span><span class="dot">✦</span>
     <span>Product Strategy</span><span class="dot">✦</span>
     <span>Selected Works</span><span class="dot">✦</span>
-    <span>2016—2026</span><span class="dot">✦</span>
-    <span>UX/UI Design</span><span class="dot">✦</span>
+    <span>Behavioral Analysis</span><span class="dot">✦</span>
+    <span>Product Designer</span><span class="dot">✦</span>
     <span>Design Systems</span><span class="dot">✦</span>
     <span>Product Strategy</span><span class="dot">✦</span>
   </div>
@@ -903,8 +908,8 @@ hr.rule {
      ============================================================ -->
 <section id="work" class="wrap">
   <div class="sec-header">
-    <div class="sec-num reveal">§ 01 — Selected Work</div>
-    <h2 class="h1 reveal">Four projects.<br/><em class="italic">Shipped, measured,</em> still in service.</h2>
+    <div class="sec-num reveal">§ 01 — Selected Works</div>
+    <h2 class="h1 reveal">Designs that moved numbers.<br/><em class="italic">Selected work.</em></h2>
   </div>
 
   <div class="work-list">
@@ -913,6 +918,7 @@ hr.rule {
       <span class="work-num">/01</span>
       <span class="work-title">Casino Landing Page</span>
       <span class="work-meta-col">
+        <img src="images/company-logos/Princess-Cruises-Logo.svg" alt="Princess Cruises logo" class="work-logo" />
         Princess Cruises
         <strong>2025 — Web</strong>
       </span>
@@ -933,6 +939,7 @@ hr.rule {
       <span class="work-num">/02</span>
       <span class="work-title">Slot Tournament</span>
       <span class="work-meta-col">
+        <img src="images/company-logos/Princess-Cruises-Logo.svg" alt="Princess Cruises logo" class="work-logo" />
         Princess Cruises
         <strong>2024 — Web</strong>
       </span>
@@ -953,12 +960,12 @@ hr.rule {
       <span class="work-num">/03</span>
       <span class="work-title">Stateroom Selection</span>
       <span class="work-meta-col">
+        <img src="images/company-logos/Princess-Cruises-Logo.svg" alt="Princess Cruises logo" class="work-logo" />
         Princess Cruises
         <strong>2024 — Web + App</strong>
       </span>
       <span class="work-thumb">
         <span class="placeholder tone-cool">
-          <span class="placeholder-label">/03 — Stateroom</span>
           <span class="placeholder-meta">Web+App · 2024</span>
         </span>
       </span>
@@ -973,6 +980,7 @@ hr.rule {
       <span class="work-num">/04</span>
       <span class="work-title">Civicaverse</span>
       <span class="work-meta-col">
+        <img src="images/company-logos/Civicaverse-Logo.svg" alt="Civicaverse logo" class="work-logo" />
         Civicaverse
         <strong>2024 — Web</strong>
       </span>
