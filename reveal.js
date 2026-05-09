@@ -61,6 +61,14 @@
       card.addEventListener('mouseenter', () => card.classList.add('hover'));
       card.addEventListener('mouseleave', () => card.classList.remove('hover'));
     });
+
+    // Pause autoplay videos for users who prefer reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.cs-video-figure video[autoplay]').forEach((v) => {
+        v.removeAttribute('autoplay');
+        v.pause();
+      });
+    }
   }
 
   if (document.readyState === 'loading') {

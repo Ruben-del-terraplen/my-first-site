@@ -149,6 +149,56 @@ This is the current preferred way to present case study images (added Phase 3, M
 - The footer/closing slice uses `class="cs-slice is-closing"` modifier (narrower, max-width 80%)
 - Captions use Geist Mono, uppercase, letter-spacing 0.08em
 
+### Video slice pattern (`.cs-video`)
+Use video instead of a static image when the design's value is in motion — interactive flows, sticky behaviors, scroll interactions, transitions. The component sits inside a `.cs-slices` wrapper and reuses `.cs-slice-caption` for captions.
+
+```html
+<div class="cs-slices" style="margin-top: 24px;">
+  <figure class="cs-slice cs-video">
+    <figcaption class="cs-slice-caption">
+      <span><span class="num">F. 01</span> — Description · Subtitle</span>
+      <strong>Right-aligned context</strong>
+    </figcaption>
+    <div class="cs-video-figure reveal-img">
+      <video
+        src="images/case-N-slug/filename.mp4"
+        poster="images/case-N-slug/filename-poster.jpg"
+        autoplay muted loop playsinline
+        preload="metadata"
+        style="aspect-ratio: WIDTH / HEIGHT;"
+        aria-label="Descriptive label"
+      ></video>
+    </div>
+  </figure>
+</div>
+```
+
+**Required attributes:**
+- `autoplay` + `muted` + `playsinline` — this combo allows iOS to autoplay inline
+- `loop` — continuous playback
+- `preload="metadata"` — don't preload the whole file, just enough for dimensions
+- `poster` — still frame, also acts as fallback and shows for reduced-motion users
+- `aria-label` — accessibility
+- `style="aspect-ratio: W / H;"` — prevents layout shift (use actual video dimensions)
+
+**File specs:**
+- **Codec:** H.264 (MP4 container), no audio (`-an`)
+- **Max width:** 1440px (same as images)
+- **Quality:** CRF 26-28, target under 5MB
+- **Pixel format:** `yuv420p` for max browser compatibility
+- **Faststart:** Always set `-movflags +faststart` for web playback
+- **Poster image:** JPEG, extracted from ~1 second in, same dimensions as video
+
+**Compression command:**
+```
+ffmpeg -i source.mp4 -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart output.mp4
+ffmpeg -ss 1 -i source.mp4 -frames:v 1 -q:v 4 poster.jpg
+```
+
+**Reduced-motion handling:** `reveal.js` checks `prefers-reduced-motion: reduce` on load and pauses all `.cs-video-figure video[autoplay]` elements, letting the poster image display instead.
+
+**Folder convention:** Same as images — files live in `images/case-N-slug/`.
+
 ---
 
 ## Image conventions
