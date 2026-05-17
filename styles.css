@@ -412,3 +412,10 @@ hr.rule {
 }
 
 .footer-links a:hover { color: var(--paper); }
+
+.reach-link {
+  color: var(--ink-4);
+  transition: color 0.3s var(--ease);
+}
+
+.reach-link:hover { color: var(--paper); }
