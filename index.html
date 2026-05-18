@@ -426,6 +426,17 @@ hr.rule {
 
 .reach-link:hover { color: var(--paper); }
 
+.footer-reach {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .footer-reach { grid-template-columns: 1fr; gap: 32px; }
+}
+
 </style>
 <style>
   /* ============================================================
@@ -1496,7 +1507,7 @@ hr.rule {
       <span data-split>real.</span>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 80px;">
+    <div class="footer-reach">
       <div>
         <div class="caption" style="color: var(--ink-4); margin-bottom: 16px;">§ Reach</div>
         <p class="lede" style="color: var(--paper); max-width: 480px;">
